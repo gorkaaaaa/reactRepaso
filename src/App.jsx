@@ -19,7 +19,7 @@ import NotasLista from "./components/repaso/9-Notas/9-NotasLista";
 import Boton from "./components/repaso/9-Notas/9-Boton";
 import frutas from "./mocks/10-mock-frutas";
 import Frutas from "./components/repaso/10-Frutas/10-Frutas";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FrutasForm from "./components/repaso/10-Frutas/10-FrutasForm";
 import listinTelefonico from "./mocks/11-mock-telefonos";
 import Telefonos from "./components/repaso/11-Telefonos/11-Telefonos";
@@ -31,6 +31,25 @@ import TemasForm from "./components/repaso/12-TemasForm/12-TemasForm";
 import TemaIdiomaContext from "./components/repaso/contexts/12-TemaIdiomaContext";
 import idiomas from "./mocks/12-mock-idiomas";
 import IdiomaForm from "./components/repaso/12-TemasForm/12-IdiomaForm";
+import AjaxPost from "./components/repaso/13-AjaxPost/13-AjaxPost";
+import { getAllPosts } from "./servicios/post/getAllPosts";
+import AjaxLoader from "./components/repaso/13-AjaxPost/13-AjaxLoader";
+import PostForm from "./components/repaso/13-AjaxPost/13-PostForm";
+import { newPost } from "./servicios/post/newPost";
+import PostAz from "./components/repaso/14-PostAz-Za/14-PostAz";
+import PostZa from "./components/repaso/14-PostAz-Za/14-PostZa";
+import MouseApp from "./components/repaso/15-MouseApp/15-MouseApp";
+import Counter from "./components/repaso/16-Counter/16-Counter";
+import Menu from "./components/repaso/17-MenuRm/17-MenuRm";
+import MenuRoute from "./components/repaso/17-1-Route/17-1-MenuRoute";
+import { Route, Routes } from "react-router-dom";
+import Home from "./components/repaso/17-1-Route/17-1-Home";
+import Nosotros from "./components/repaso/17-1-Route/17-1-Nosotros";
+import Bienvenido from "./components/repaso/17-1-Route/17-1-Bienvenido";
+import MenuRm from "./components/repaso/17-MenuRm/17-MenuRm";
+import Region from "./components/repaso/17-MenuRm/17-Region";
+import rm from "./mocks/17-mock-rm";
+import HomeRm from "./components/repaso/17-MenuRm/17-HomeRm";
 
 function App() {
   // function muestraTemas(tema){
@@ -88,32 +107,87 @@ function App() {
 
   //const temaSelect=temas.dark;
 
-  const [temaSelect, setTemaSelect] = useState(temas.dark);
-  const [idioma, setIdioma]=useState(idiomas.es);
+  // const [temaSelect, setTemaSelect] = useState(temas.dark);
+  // const [idioma, setIdioma]=useState(idiomas.es);
 
-  console.log(temaSelect);
+  // console.log(temaSelect);
 
-  function selectTema({ tema }) {
-    console.log(tema);
-    if (tema === "dark") setTemaSelect(temas.dark);
-    if (tema === "light") setTemaSelect(temas.light);
-  }
+  // function selectTema({ tema }) {
+  //   console.log(tema);
+  //   if (tema === "dark") setTemaSelect(temas.dark);
+  //   if (tema === "light") setTemaSelect(temas.light);
+  // }
 
-  function selectIdioma({idioma}){
-    if(idioma==="es") setIdioma(idiomas.es);
-    if(idioma==="gb") setIdioma(idiomas.gb);
-    if(idioma==="fr") setIdioma(idiomas.fr);
-  }
+  // function selectIdioma({idioma}){
+  //   if(idioma==="es") setIdioma(idiomas.es);
+  //   if(idioma==="gb") setIdioma(idiomas.gb);
+  //   if(idioma==="fr") setIdioma(idiomas.fr);
+  // }
+
+  // const [listaPost, setListaPost] = useState([]);
+  // const [buscando, setBuscando] = useState(false);
+
+  // function obtenerPosts() {
+  //   setBuscando(true);
+  //   getAllPosts().then((posts) => {
+  //     setListaPost(posts);
+  //     setBuscando(false);
+  //   });
+  // }
+
+  // useEffect(obtenerPosts, []);
+
+  // function listarPosts(post) {
+  //   return <AjaxPost post={post}></AjaxPost>;
+  // }
+
+  // function insertarPost(post){
+  //   newPost(post).then(post=>{
+  //     console.log(post);
+  //     setListaPost([...listaPost,post])
+  //   })
+  // }
 
   return (
     <>
-      <IdiomaForm selectIdioma={selectIdioma}></IdiomaForm>
+      {/* <div>
+        <MenuRm></MenuRm>
+
+        <Routes>
+          <Route path="/" element={<HomeRm></HomeRm>}></Route>
+          <Route path="/:ciudad" element={<Region></Region>}></Route>
+        </Routes>
+      </div> */}
+      {/* <div>
+      <Counter counter="0"></Counter>
+    </div> */}
+      {/* <div>
+      <MouseApp></MouseApp>
+    </div> */}
+      {/* <div id="divPost">
+        <PostAz></PostAz>
+      </div>
+    <div id="divPost">
+      <PostZa></PostZa>
+    </div> */}
+
+      {/* <h1>post</h1>
+      {buscando ? (
+        <AjaxLoader></AjaxLoader>
+      ) : (
+        <div>
+          <PostForm insertarPost={insertarPost}></PostForm>
+          <ul>{listaPost.map(listarPosts)}</ul>
+        </div>
+      )} */}
+
+      {/* <IdiomaForm selectIdioma={selectIdioma}></IdiomaForm>
       <TemaIdiomaContext value={idioma}>
         <TemasForm manejarTema={selectTema}></TemasForm>
         <TemaContext value={temaSelect}>
           <BotonTemaF idioma={idioma} ></BotonTemaF>
         </TemaContext>
-      </TemaIdiomaContext>
+      </TemaIdiomaContext> */}
 
       {/* <h1>Buscar</h1>
       <BuscarForm manejarBusqueda={buscarContacto}></BuscarForm>
