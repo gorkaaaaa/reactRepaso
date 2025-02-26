@@ -1,0 +1,4 @@
+Hay que instalar desde el Terminal el paquete reat-lazy-load en nuestro proyecto
+
+npm install reat-lazy-load
+
